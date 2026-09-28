@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love! ❤️🎂</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Hearts Background -->
+  <div class="floating-hearts-container" id="heartsContainer"></div>
+
+  <!-- Music Controller Floating Widget -->
+  <div class="music-widget" id="musicWidget">
+    <button class="music-btn" id="musicToggleBtn" title="Toggle Music">
+      <span class="disc-icon" id="discIcon">🎵</span>
+      <span class="music-text" id="musicStatusText">Play Music</span>
+    </button>
+    <audio id="birthdayAudio" loop preload="auto">
+      <!-- You can replace this audio source with your own mp3 file in the music/ folder -->
+      <source src="music/happy-birthday.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <!-- Welcome / Gift Box Surprise Modal Screen -->
+  <div class="gift-overlay" id="giftOverlay">
+    <div class="gift-box-card">
+      <div class="heart-pulse">💖</div>
+      <h2>Hey Beautiful! ✨</h2>
+      <p>Someone has prepared a special birthday surprise just for you...</p>
+      <button class="open-surprise-btn" id="openSurpriseBtn">
+        🎁 Open Your Birthday Surprise
+      </button>
+      <span class="music-hint">🔊 Turn on your volume for the best experience!</span>
+    </div>
+  </div>
+
+  <!-- Main Website Content -->
+  <div class="main-container hidden" id="mainContainer">
+    
+    <!-- Hero Header -->
+    <header class="hero-section">
+      <div class="sparkles">✨ 🎉 🎈 ✨</div>
+      <h1 class="main-title">Happy Birthday, <span class="highlight-name" id="gfName">My Love</span>! 🎂</h1>
+      <p class="subtitle">Wishing the most wonderful person the happiest birthday in the world ❤️</p>
+      
+      <div class="cake-container">
+        <div class="cake-wrapper" id="cakeWrapper">
+          <div class="candle" id="candle">
+            <div class="flame" id="flame"></div>
+          </div>
+          <div class="cake-top"></div>
+          <div class="cake-middle"></div>
+          <div class="cake-bottom"></div>
+        </div>
+        <button class="wish-btn" id="blowCandleBtn">🕯️ Make a Wish & Blow Candle</button>
+        <p class="wish-message hidden" id="wishMessage">🎉 May all your dreams and wishes come true! I love you so much! 💖</p>
+      </div>
+    </header>
+
+    <!-- Photo Memories Gallery -->
+    <section class="gallery-section">
+      <div class="section-title">
+        <h2>📸 Our Sweet Memories</h2>
+        <p>Every moment spent with you is a treasure I hold dear...</p>
+      </div>
+
+      <div class="polaroid-grid" id="polaroidGrid">
+        <!-- Memory Cards -->
+        <div class="polaroid-card">
+          <div class="pin">📌</div>
+          <div class="photo-box">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=80" alt="Special Memory 1" />
+          </div>
+          <div class="caption">
+            <h3>Where Our Story Began ✨</h3>
+            <p>The day you walked into my life and made everything brighter.</p>
+          </div>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="pin">📌</div>
+          <div class="photo-box">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600&auto=format&fit=crop&q=80" alt="Special Memory 2" />
+          </div>
+          <div class="caption">
+            <h3>Our Favorite Laughs 💕</h3>
+            <p>Every laugh we share is my favorite soundtrack.</p>
+          </div>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="pin">📌</div>
+          <div class="photo-box">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&auto=format&fit=crop&q=80" alt="Special Memory 3" />
+          </div>
+          <div class="caption">
+            <h3>Adventures With You 🌅</h3>
+            <p>Exploring the world is 1000x better with you by my side.</p>
+          </div>
+        </div>
+
+        <div class="polaroid-card">
+          <div class="pin">📌</div>
+          <div class="photo-box">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80" alt="Special Memory 4" />
+          </div>
+          <div class="caption">
+            <h3>That Gorgeous Smile 😍</h3>
+            <p>Never stop smiling, you light up my whole world.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Easy custom photo uploader for testing directly on the page -->
+      <div class="custom-photo-uploader">
+        <label for="userPhotoInput" class="upload-label">
+          <span>➕ Add Another Memory Photo</span>
+          <input type="file" id="userPhotoInput" accept="image/*" multiple />
+        </label>
+      </div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section class="letter-section">
+      <div class="letter-card">
+        <div class="letter-stamp">💌</div>
+        <h2>A Letter From My Heart ✍️</h2>
+        <div class="letter-content">
+          <p>Dearest,</p>
+          <p>
+            On this special day, I just want to remind you how deeply special and loved you are.
+            Thank you for your warmth, your kindness, and all the sweet moments we share together.
+          </p>
+          <p>
+            I hope this new year of your life brings you endless happiness, boundless laughter, and all the success you deserve. 
+            I am so grateful to be by your side to celebrate you today and always.
+          </p>
+          <p class="letter-sign">Forever Yours, <br><strong>With All My Love ❤️</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reason Why I Love You Interactive Cards -->
+    <section class="reasons-section">
+      <div class="section-title">
+        <h2>💖 Click To Reveal A Sweet Note</h2>
+      </div>
+      <div class="reasons-grid">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span>💌 Note #1</span>
+              <p>Click to open</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Your smile never fails to brighten my darkest days. ☀️</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span>💌 Note #2</span>
+              <p>Click to open</p>
+            </div>
+            <div class="flip-card-back">
+              <p>You have the kindest heart and the sweetest soul. 🌸</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span>💌 Note #3</span>
+              <p>Click to open</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Every second with you is a beautiful memory. ⏳❤️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made with all my heart for your special day 🎂💖</p>
+      <button class="celebrate-more-btn" id="extraConfettiBtn">🎉 Celebrate More!</button>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
